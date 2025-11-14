@@ -1,0 +1,1544 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AGRO VUK 2020 d.o.o. | Podrška stočarskoj proizvodnji</title>
+    <meta name="description" content="AGRO VUK 2020 d.o.o. iz Skobalja pruža stručnu podršku farmerima: ishrana i smeštaj stoke, zdravlje životinja, digitalni nadzor i savjetovanje na terenu.">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --green-dark: #16301f;
+            --green-main: #23472c;
+            --green-soft: #3c6b43;
+            --cream: #f7f2e7;
+            --cream-soft: #f0e6d5;
+            --accent: #c6a676;
+            --text-main: #122013;
+            --text-soft: #4c5b4d;
+            --white: #ffffff;
+            --shadow-soft: 0 24px 60px rgba(0, 0, 0, 0.35);
+            --radius-xl: 40px;
+            --radius-l: 28px;
+            --radius-round: 999px;
+            --transition-fast: 0.25s ease;
+            --transition-slow: 0.5s ease;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            background-color: #14301e;
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .page-wrapper {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            padding: 32px 16px 64px;
+        }
+
+        .site-shell {
+            width: 100%;
+            max-width: 1100px;
+            background-color: var(--cream);
+            border-radius: 32px;
+            overflow: hidden;
+            box-shadow: var(--shadow-soft);
+            position: relative;
+        }
+
+        .hero {
+            position: relative;
+            height: 520px;
+            color: var(--white);
+            border-radius: 32px 32px 0 0;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image: url("https://images.pexels.com/photos/735968/pexels-photo-735968.jpeg");
+            background-size: cover;
+            background-position: center;
+            transform: scale(1.04);
+            filter: brightness(0.55) saturate(1.15);
+        }
+
+        .hero::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 20% 20%, rgba(198, 166, 118, 0.4), transparent 55%),
+                        radial-gradient(circle at 80% 80%, rgba(10, 25, 15, 0.75), rgba(10, 25, 15, 0.95));
+            mix-blend-mode: multiply;
+        }
+
+        .hero-inner {
+            position: relative;
+            z-index: 2;
+            height: 100%;
+            padding: 20px 52px 56px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .top-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 48px;
+        }
+
+        .brand-mark {
+            font-family: "Playfair Display", serif;
+            font-size: 18px;
+            letter-spacing: 0.24em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.84);
+        }
+
+        .nav {
+            background: rgba(8, 24, 15, 0.72);
+            padding: 6px;
+            border-radius: 999px;
+            display: flex;
+            gap: 4px;
+            backdrop-filter: blur(14px);
+        }
+
+        .nav-link {
+            border: none;
+            background: transparent;
+            color: rgba(255, 255, 255, 0.86);
+            padding: 8px 18px;
+            border-radius: 999px;
+            font-size: 13px;
+            cursor: pointer;
+            transition: background-color var(--transition-fast),
+                        color var(--transition-fast),
+                        transform var(--transition-fast);
+            white-space: nowrap;
+        }
+
+        .nav-link:hover {
+            background-color: rgba(246, 237, 216, 0.16);
+            transform: translateY(-1px);
+        }
+
+        .nav-link.active {
+            background: var(--cream-soft);
+            color: var(--green-main);
+        }
+
+        .hero-main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            max-width: 540px;
+        }
+
+        .hero-tagline {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.18em;
+            margin-bottom: 16px;
+            color: rgba(255, 255, 255, 0.82);
+        }
+
+        .hero-title {
+            font-family: "Playfair Display", serif;
+            font-size: 42px;
+            line-height: 1.16;
+            margin-bottom: 18px;
+        }
+
+        .hero-subtitle {
+            font-size: 16px;
+            color: rgba(244, 240, 231, 0.88);
+            margin-bottom: 28px;
+        }
+
+        .hero-cta-row {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .btn-primary {
+            padding: 12px 26px;
+            border-radius: 999px;
+            border: none;
+            background: var(--cream);
+            color: var(--green-main);
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color var(--transition-fast),
+                        transform var(--transition-fast),
+                        box-shadow var(--transition-fast);
+            box-shadow: 0 14px 30px rgba(0, 0, 0, 0.35);
+        }
+
+        .btn-primary:hover {
+            background-color: #fff7eb;
+            transform: translateY(-2px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.45);
+        }
+
+        .btn-secondary {
+            padding: 11px 22px;
+            border-radius: 999px;
+            border: 1px solid rgba(246, 237, 216, 0.7);
+            background: transparent;
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 13px;
+            cursor: pointer;
+            transition: background-color var(--transition-fast),
+                        color var(--transition-fast),
+                        border-color var(--transition-fast);
+        }
+
+        .btn-secondary:hover {
+            background-color: rgba(246, 237, 216, 0.18);
+            border-color: #f6edd8;
+        }
+
+        .hero-meta {
+            margin-top: 30px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 26px;
+            font-size: 13px;
+            color: rgba(239, 231, 214, 0.95);
+        }
+
+        .hero-meta-item span {
+            display: block;
+            font-size: 11px;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            opacity: 0.72;
+            margin-bottom: 2px;
+        }
+
+        .content {
+            background-color: var(--cream);
+        }
+
+        .section {
+            padding: 72px 64px;
+        }
+
+        .section-soft {
+            background-color: var(--cream-soft);
+        }
+
+        .section-round-top {
+            border-top-left-radius: var(--radius-xl);
+            border-top-right-radius: var(--radius-xl);
+            margin-top: -40px;
+        }
+
+        .section-round-bottom {
+            border-bottom-left-radius: var(--radius-xl);
+            border-bottom-right-radius: var(--radius-xl);
+            margin-bottom: 40px;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .eyebrow {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--green-soft);
+            margin-bottom: 8px;
+        }
+
+        .section-title {
+            font-family: "Playfair Display", serif;
+            font-size: 30px;
+            line-height: 1.2;
+            color: var(--green-main);
+            margin-bottom: 10px;
+        }
+
+        .section-subtitle {
+            font-size: 15px;
+            color: var(--text-soft);
+            max-width: 620px;
+            margin: 0 auto;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 40px;
+            margin-top: 20px;
+        }
+
+        .about-text {
+            font-size: 15px;
+            color: var(--text-soft);
+        }
+
+        .about-text p + p {
+            margin-top: 14px;
+        }
+
+        .about-highlights {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 16px;
+        }
+
+        .about-card {
+            background-color: var(--white);
+            border-radius: 24px;
+            padding: 20px 22px;
+            box-shadow: 0 10px 26px rgba(0, 0, 0, 0.06);
+        }
+
+        .about-card-label {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.18em;
+            color: var(--green-soft);
+            margin-bottom: 4px;
+        }
+
+        .about-card-title {
+            font-weight: 600;
+            font-size: 14px;
+            margin-bottom: 6px;
+            color: var(--green-main);
+        }
+
+        .about-card-text {
+            font-size: 13px;
+            color: var(--text-soft);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 24px;
+            margin-top: 10px;
+        }
+
+        .service-card {
+            background-color: var(--white);
+            border-radius: var(--radius-l);
+            padding: 22px 22px 24px;
+            box-shadow: 0 16px 26px rgba(0, 0, 0, 0.06);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform var(--transition-fast),
+                        box-shadow var(--transition-fast);
+        }
+
+        .service-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 22px 46px rgba(0, 0, 0, 0.08);
+        }
+
+        .service-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 15px;
+            background: rgba(35, 71, 44, 0.08);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            margin-bottom: 16px;
+        }
+
+        .service-title {
+            font-weight: 600;
+            font-size: 15px;
+            color: var(--green-main);
+            margin-bottom: 10px;
+        }
+
+        .service-text {
+            font-size: 14px;
+            color: var(--text-soft);
+        }
+
+        .service-tag {
+            margin-top: 16px;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.18em;
+            color: var(--green-soft);
+        }
+
+        .advantages-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 24px;
+            margin-top: 10px;
+        }
+
+        .advantage-card {
+            background: linear-gradient(145deg, #1b3423, #2b5634);
+            border-radius: var(--radius-l);
+            padding: 22px 22px 24px;
+            color: var(--cream);
+        }
+
+        .advantage-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 12px;
+            background: rgba(246, 237, 216, 0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            margin-bottom: 12px;
+        }
+
+        .advantage-title {
+            font-weight: 600;
+            font-size: 15px;
+            margin-bottom: 8px;
+        }
+
+        .advantage-text {
+            font-size: 14px;
+            opacity: 0.92;
+        }
+
+        .process-layout {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 32px;
+            align-items: center;
+        }
+
+        .process-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+
+        .process-step {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 14px 18px;
+            align-items: start;
+        }
+
+        .process-circle {
+            width: 32px;
+            height: 32px;
+            border-radius: 999px;
+            border: 1px solid rgba(35, 71, 44, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 13px;
+            font-weight: 500;
+            background-color: var(--white);
+        }
+
+        .process-body-title {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--green-main);
+            margin-bottom: 4px;
+        }
+
+        .process-body-text {
+            font-size: 14px;
+            color: var(--text-soft);
+        }
+
+        .process-note {
+            font-size: 13px;
+            color: var(--text-soft);
+            margin-top: 10px;
+        }
+
+        .process-card {
+            background: var(--green-main);
+            border-radius: 28px;
+            padding: 22px 24px;
+            color: var(--cream);
+            box-shadow: 0 18px 32px rgba(0, 0, 0, 0.15);
+        }
+
+        .process-card-title {
+            font-family: "Playfair Display", serif;
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .process-card-text {
+            font-size: 14px;
+            opacity: 0.95;
+            margin-bottom: 12px;
+        }
+
+        .pill-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .pill {
+            padding: 6px 12px;
+            border-radius: 999px;
+            border: 1px solid rgba(246, 237, 216, 0.4);
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.16em;
+        }
+
+        .cta-inline {
+            margin-top: 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .cta-inline button {
+            font-size: 13px;
+        }
+
+        .cta-note {
+            font-size: 12px;
+            opacity: 0.9;
+        }
+
+        .contact-section {
+            padding: 64px 64px 56px;
+            border-top: 1px solid rgba(18, 32, 19, 0.06);
+        }
+
+        .contact-layout {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 40px;
+        }
+
+        .contact-title {
+            font-family: "Playfair Display", serif;
+            font-size: 28px;
+            color: var(--green-main);
+            margin-bottom: 12px;
+        }
+
+        .contact-text {
+            font-size: 15px;
+            color: var(--text-soft);
+            margin-bottom: 22px;
+        }
+
+        .contact-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 22px;
+        }
+
+        .contact-badge {
+            padding: 6px 14px;
+            border-radius: 999px;
+            background-color: var(--cream-soft);
+            font-size: 12px;
+        }
+
+        .contact-details {
+            font-size: 14px;
+            color: var(--text-soft);
+        }
+
+        .contact-details-item + .contact-details-item {
+            margin-top: 8px;
+        }
+
+        .contact-label {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.16em;
+            color: var(--green-soft);
+        }
+
+        .contact-value {
+            font-weight: 500;
+            color: var(--green-main);
+        }
+
+        .contact-email-link {
+            color: var(--green-soft);
+            text-decoration: none;
+            border-bottom: 1px solid rgba(35, 71, 44, 0.3);
+        }
+
+        .contact-email-link:hover {
+            border-color: var(--green-soft);
+        }
+
+        .contact-card {
+            background-color: var(--white);
+            border-radius: 24px;
+            padding: 22px 24px;
+            box-shadow: 0 14px 30px rgba(0, 0, 0, 0.06);
+        }
+
+        .contact-card-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--green-main);
+            margin-bottom: 8px;
+        }
+
+        .contact-card-text {
+            font-size: 14px;
+            color: var(--text-soft);
+            margin-bottom: 16px;
+        }
+
+        .contact-phrase-list {
+            list-style: none;
+            display: grid;
+            gap: 6px;
+            font-size: 13px;
+            color: var(--text-soft);
+            margin-bottom: 18px;
+        }
+
+        .contact-phrase-list li::before {
+            content: "• ";
+        }
+
+        .footer {
+            padding: 16px 64px 26px;
+            background-color: var(--cream);
+            border-top: 1px solid rgba(18, 32, 19, 0.04);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 12px;
+            color: var(--text-soft);
+        }
+
+        .footer span {
+            opacity: 0.9;
+        }
+
+        .footer a {
+            color: var(--green-soft);
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(9, 18, 12, 0.64);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity var(--transition-slow);
+            z-index: 40;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .modal {
+            background-color: var(--cream);
+            border-radius: 26px;
+            padding: 26px 28px 24px;
+            width: 100%;
+            max-width: 440px;
+            box-shadow: 0 26px 70px rgba(0, 0, 0, 0.45);
+            transform: translateY(18px);
+            transition: transform var(--transition-slow);
+        }
+
+        .modal-overlay.active .modal {
+            transform: translateY(0);
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 14px;
+        }
+
+        .modal-title {
+            font-family: "Playfair Display", serif;
+            font-size: 22px;
+            color: var(--green-main);
+        }
+
+        .modal-close {
+            border-radius: 50%;
+            border: none;
+            background: rgba(35, 71, 44, 0.08);
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 16px;
+            color: var(--green-main);
+        }
+
+        .modal-body {
+            font-size: 14px;
+            color: var(--text-soft);
+            margin-bottom: 12px;
+        }
+
+        .form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 8px;
+        }
+
+        .form-row {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .form-label {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.14em;
+            color: var(--green-soft);
+        }
+
+        .form-input,
+        .form-textarea,
+        .form-select {
+            border-radius: 999px;
+            border: 1px solid rgba(18, 32, 19, 0.12);
+            padding: 10px 14px;
+            font-size: 14px;
+            outline: none;
+            background-color: var(--white);
+            transition: border-color var(--transition-fast),
+                        box-shadow var(--transition-fast),
+                        background-color var(--transition-fast);
+        }
+
+        .form-textarea {
+            border-radius: 18px;
+            min-height: 96px;
+            resize: vertical;
+            line-height: 1.5;
+        }
+
+        .form-select {
+            appearance: none;
+            background-image: linear-gradient(45deg, transparent 50%, var(--green-soft) 50%),
+                              linear-gradient(135deg, var(--green-soft) 50%, transparent 50%);
+            background-position: calc(100% - 16px) 50%, calc(100% - 12px) 50%;
+            background-size: 6px 6px, 6px 6px;
+            background-repeat: no-repeat;
+        }
+
+        .form-input:focus,
+        .form-textarea:focus,
+        .form-select:focus {
+            border-color: var(--green-soft);
+            box-shadow: 0 0 0 2px rgba(35, 71, 44, 0.12);
+            background-color: #ffffff;
+        }
+
+        .form-hint {
+            font-size: 11px;
+            color: var(--text-soft);
+            opacity: 0.85;
+        }
+
+        .form-actions {
+            margin-top: 14px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .form-actions .btn-primary {
+            box-shadow: none;
+        }
+
+        .form-meta {
+            font-size: 11px;
+            color: var(--text-soft);
+            max-width: 220px;
+        }
+
+        .badge-soft {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            padding: 4px 10px;
+            border-radius: 999px;
+            background-color: var(--cream-soft);
+            font-size: 11px;
+            margin-top: 6px;
+        }
+
+        .badge-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background-color: #48a869;
+        }
+
+        .modal-success .modal {
+            text-align: left;
+        }
+
+        .success-icon {
+            width: 38px;
+            height: 38px;
+            border-radius: 14px;
+            background-color: #e3f4ea;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .success-title {
+            font-family: "Playfair Display", serif;
+            font-size: 22px;
+            color: var(--green-main);
+            margin-bottom: 6px;
+        }
+
+        .success-text {
+            font-size: 14px;
+            color: var(--text-soft);
+            margin-bottom: 12px;
+        }
+
+        .success-note {
+            font-size: 12px;
+            color: var(--text-soft);
+        }
+
+        @media (max-width: 960px) {
+            .hero-inner {
+                padding: 18px 24px 40px;
+            }
+
+            .top-bar {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 12px;
+            }
+
+            .section,
+            .contact-section,
+            .footer {
+                padding-inline: 24px;
+            }
+
+            .about-grid,
+            .services-grid,
+            .advantages-grid,
+            .process-layout,
+            .contact-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .services-grid,
+            .advantages-grid {
+                gap: 18px;
+            }
+
+            .section-round-top {
+                border-radius: 24px 24px 0 0;
+                margin-top: -20px;
+            }
+
+            .section-round-bottom {
+                border-radius: 0 0 24px 24px;
+            }
+        }
+
+        @media (max-width: 720px) {
+            .hero {
+                height: 520px;
+            }
+
+            .hero-title {
+                font-size: 32px;
+            }
+
+            .nav {
+                overflow-x: auto;
+                max-width: 100%;
+            }
+
+            .hero-cta-row {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .section {
+                padding-block: 56px;
+            }
+
+            .contact-section {
+                padding-block: 52px;
+            }
+
+            .footer {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 6px;
+                padding-inline: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page-wrapper">
+        <div class="site-shell">
+            <header class="hero" id="hero">
+                <div class="hero-inner">
+                    <div class="top-bar">
+                        <div class="brand-mark">
+                            AGRO VUK 2020
+                        </div>
+                        <nav class="nav" aria-label="Glavna navigacija">
+                            <button class="nav-link active" data-scroll="#about">
+                                O nama
+                            </button>
+                            <button class="nav-link" data-scroll="#services">
+                                Usluge
+                            </button>
+                            <button class="nav-link" data-scroll="#advantages">
+                                Zašto AGRO VUK
+                            </button>
+                            <button class="nav-link" data-scroll="#process">
+                                Kako radimo
+                            </button>
+                            <button class="nav-link" data-scroll="#contact">
+                                Kontakt
+                            </button>
+                        </nav>
+                    </div>
+                    <div class="hero-main">
+                        <div class="hero-tagline">
+                            Stručna podrška za mirno stado
+                        </div>
+                        <h1 class="hero-title">
+                            Premium servis podrške
+                            stočarskoj proizvodnji
+                        </h1>
+                        <p class="hero-subtitle">
+                            AGRO VUK 2020 d.o.o. iz Skobalja prati vaše farme tokom cele godine: od ishrane i uslova držanja do zdravlja životinja i digitalnog nadzora nad stadom.
+                        </p>
+                        <div class="hero-cta-row">
+                            
+                            <button class="btn-secondary" data-scroll="#services">
+                                Pogledaj šta radimo na terenu
+                            </button>
+                        </div>
+                        <div class="hero-meta">
+                            <div class="hero-meta-item">
+                                <span>
+                                    Regija
+                                </span>
+                                Šumadija i okolina, rad na licu mesta
+                            </div>
+                            <div class="hero-meta-item">
+                                <span>
+                                    Fokus
+                                </span>
+                                Govedarstvo, svinjarstvo, ovčarstvo i farme živine
+                            </div>
+                            <div class="hero-meta-item">
+                                <span>
+                                    Godina osnivanja
+                                </span>
+                                2020. – iskustvo iz prakse, svaki dan na farmama
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <main class="content">
+                <section class="section section-soft section-round-top" id="about">
+                    <div class="section-header">
+                        <div class="eyebrow">
+                            Ko stoji iza AGRO VUK 2020
+                        </div>
+                        <h2 class="section-title">
+                            Priča o timu koji razume životinje i farmere
+                        </h2>
+                        <p class="section-subtitle">
+                            Pomažemo stočarima da svakodnevne odluke na farmi pretvore u održiv i predvidiv sistem, sa zdravim životinjama i stabilnim prinosima.
+                        </p>
+                    </div>
+                    <div class="about-grid">
+                        <div class="about-text">
+                            <p>
+                                AGRO VUK 2020 d.o.o. je specijalizovana kompanija za podršku stočarskoj proizvodnji sa sedištem u Skobalju, u srcu aktivnog stočarskog regiona. Naš tim svakodnevno obilazi farme, meri uslove držanja i zajedno sa vama planira naredne korake kako bi stado bilo stabilno, mirno i produktivno.
+                            </p>
+                            <p>
+                                Svaku farmu posmatramo kao živi sistem: od kvaliteta prostirke i ventilacije, preko receptura obroka i režima napajanja, do načina postupanja sa životinjama. Na osnovu podataka i zabeleženih odstupanja, prilagođavamo preporuke realnim mogućnostima gazdinstva.
+                            </p>
+                            <p>
+                                Saradnju gradimo transparentno – kroz jasno definisane ciljeve, redovne terenske posete i digitalne izveštaje sa fotografijama i ključnim pokazateljima. Farmer tačno zna koje izmene uvodi danas i kakav efekat može očekivati za 3, 6 ili 12 meseci.
+                            </p>
+                            <p>
+                                Bilo da je u pitanju mala porodična farma ili kompleks sa više objekata, postavljamo standarde biosigurnosti, unutrašnje logistike, ishrane i brige o životinjama koji smanjuju rizik od bolesti i finansijskih gubitaka.
+                            </p>
+                        </div>
+                        <div class="about-highlights">
+                            <div class="about-card">
+                                <div class="about-card-label">
+                                    Na terenu, ne samo u kancelariji
+                                </div>
+                                <div class="about-card-title">
+                                    Posete farmama tokom ključnih faza ciklusa
+                                </div>
+                                <div class="about-card-text">
+                                    Pratimo teljenje, prasenje, jagnjenje, tovljenje i period prelaza između obroka. Zapisujemo ponašanje stada, uslove u objektu i zajedno sa farmerom tražimo uzrok, a ne samo posledicu.
+                                </div>
+                            </div>
+                            <div class="about-card">
+                                <div class="about-card-label">
+                                    Podaci kao osnova za odluke
+                                </div>
+                                <div class="about-card-title">
+                                    Digitalni izveštaji za svako gazdinstvo
+                                </div>
+                                <div class="about-card-text">
+                                    Nakon posete dobijate sažet izveštaj sa konkretnim koracima, fotografijama sa farme i tabelarnim pregledom napretka od prethodne kontrole.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="section" id="services">
+                    <div class="section-header">
+                        <div class="eyebrow">
+                            Šta radimo svakog dana
+                        </div>
+                        <h2 class="section-title">
+                            Usluge podrške stočarstvu, od štale do izveštaja
+                        </h2>
+                        <p class="section-subtitle">
+                            Fokusirani smo na praktična rešenja koja farmer može odmah da primeni, uz jasan plan praćenja rezultata i podršku tokom cele godine.
+                        </p>
+                    </div>
+                    <div class="services-grid">
+                        <article class="service-card">
+                            <div>
+                                <div class="service-icon" aria-hidden="true">
+                                    🐄
+                                </div>
+                                <h3 class="service-title">
+                                    Optimizacija ishrane i uslova držanja
+                                </h3>
+                                <p class="service-text">
+                                    Analiziramo postojeće obroke, strukturu obroka na jaslama, dostupnost sveže vode i ventilaciju u objektu. Predlažemo realne izmene koje prate vaš budžet, ali podižu prirast, mlečnost i kondiciju životinja.
+                                </p>
+                            </div>
+                            <div class="service-tag">
+                                Balansirani obrok, mirno stado
+                            </div>
+                        </article>
+                        <article class="service-card">
+                            <div>
+                                <div class="service-icon" aria-hidden="true">
+                                    🩺
+                                </div>
+                                <h3 class="service-title">
+                                    Program zdravlja i biosigurnosti stada
+                                </h3>
+                                <p class="service-text">
+                                    Mapiramo rizike ulaska bolesti, organizujemo zone kretanja ljudi i vozila i uvodimo rutine dezinfekcije. U dogovoru sa veterinarom koordiniramo vakcinacije i preventivne tretmane.
+                                </p>
+                            </div>
+                            <div class="service-tag">
+                                Manje rizika, manje troškova
+                            </div>
+                        </article>
+                        <article class="service-card">
+                            <div>
+                                <div class="service-icon" aria-hidden="true">
+                                    📊
+                                </div>
+                                <h3 class="service-title">
+                                    Praćenje rezultata i digitalni nadzor
+                                </h3>
+                                <p class="service-text">
+                                    Uvodimo jednostavne obrasce za beleženje prirasta, potrošnje hrane i uginuća. Na mesečnom nivou dobijate digitalni pregled ključnih pokazatelja sa jasnim objašnjenjima i preporukama.
+                                </p>
+                            </div>
+                            <div class="service-tag">
+                                Podaci umesto nagađanja
+                            </div>
+                        </article>
+                    </div>
+                </section>
+                <section class="section section-soft section-round-bottom" id="advantages">
+                    <div class="section-header">
+                        <div class="eyebrow">
+                            Vrednost za vaše gazdinstvo
+                        </div>
+                        <h2 class="section-title">
+                            Zašto farmeri biraju AGRO VUK 2020
+                        </h2>
+                        <p class="section-subtitle">
+                            Nismo još jedan dobavljač – radimo uz vas, na istoj strani jasala, sa jasnim rezultatima koji se vide u knjigama i u štali.
+                        </p>
+                    </div>
+                    <div class="advantages-grid">
+                        <article class="advantage-card">
+                            <div class="advantage-icon" aria-hidden="true">
+                                ✅
+                            </div>
+                            <h3 class="advantage-title">
+                                Konkretni, merljivi pomaci na farmi
+                            </h3>
+                            <p class="advantage-text">
+                                Svaki predlog iz prakse povezujemo sa brojevima: prirast, dnevna mlečnost, konverzija hrane i stopa uginuća. Zajedno pratimo koliko se farma menja iz meseca u mesec.
+                            </p>
+                        </article>
+                        <article class="advantage-card">
+                            <div class="advantage-icon" aria-hidden="true">
+                                🤝
+                            </div>
+                            <h3 class="advantage-title">
+                                Saradnja bez komplikovanih ugovora
+                            </h3>
+                            <p class="advantage-text">
+                                Radimo transparentno: dogovoreni broj poseta, jasno definisani ciljevi i otvorena komunikacija sa farmerom, veterinarom i dobavljačima hrane i opreme.
+                            </p>
+                        </article>
+                        <article class="advantage-card">
+                            <div class="advantage-icon" aria-hidden="true">
+                                🌱
+                            </div>
+                            <h3 class="advantage-title">
+                                Fokus na dugoročno zdravlje stada
+                            </h3>
+                            <p class="advantage-text">
+                                Umesto brzih rešenja, uvodimo navike na farmi koje čuvaju zdravlje životinja, olakšavaju rad porodice i sprečavaju skupe krize u budućnosti.
+                            </p>
+                        </article>
+                    </div>
+                </section>
+                <section class="section" id="process">
+                    <div class="section-header">
+                        <div class="eyebrow">
+                            Način saradnje
+                        </div>
+                        <h2 class="section-title">
+                            Kako izgleda naš proces rada sa farmom
+                        </h2>
+                        <p class="section-subtitle">
+                            Jasna tri koraka od prvog obilaska do stabilnog sistema koji pratimo zajedno, uz minimalno administriranja sa vaše strane.
+                        </p>
+                    </div>
+                    <div class="process-layout">
+                        <div class="process-steps">
+                            <div class="process-step">
+                                <div class="process-circle">
+                                    1
+                                </div>
+                                <div>
+                                    <div class="process-body-title">
+                                        Uvodni razgovor i prva poseta gazdinstvu
+                                    </div>
+                                    <div class="process-body-text">
+                                        Počinje kratkim online upitnikom i dogovorom. Na prvoj poseti obilazimo objekte, gledamo stoku u realnim uslovima rada i zajedno formulišemo listu najvećih izazova koje želite da rešite.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="process-step">
+                                <div class="process-circle">
+                                    2
+                                </div>
+                                <div>
+                                    <div class="process-body-title">
+                                        Plan promene, mali koraci koji daju rezultat
+                                    </div>
+                                    <div class="process-body-text">
+                                        Pripremamo praktičan plan sa koracima koje možete da uvedete u narednih 30, 90 i 180 dana. Dogovaramo dinamiku poseta i kanale komunikacije za hitna pitanja.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="process-step">
+                                <div class="process-circle">
+                                    3
+                                </div>
+                                <div>
+                                    <div class="process-body-title">
+                                        Redovno praćenje i prilagođavanje
+                                    </div>
+                                    <div class="process-body-text">
+                                        Na svakoj narednoj poseti proveravamo rezultate, korigujemo preporuke i zajedno beležimo stanje. Farmer ima jasan uvid u to šta se promenilo od prethodne kontrole.
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="process-note">
+                                Tokom celog procesa podržavamo vas kroz jednostavnu digitalnu dokumentaciju i izveštaje koje možete lako podeliti sa članovima porodice ili saradnicima.
+                            </p>
+                        </div>
+                        <aside class="process-card">
+                            <h3 class="process-card-title">
+                                Naša misija: mirno stado i miran farmer
+                            </h3>
+                            <p class="process-card-text">
+                                Verujemo da dobra podrška stočarstvu znači manje iznenađenja, manje hitnih intervencija i više vremena da se posvetite planiranju, a ne gašenju požara. Zato svaki savet gradimo na podacima, iskustvu i realnim mogućnostima farme.
+                            </p>
+                            <p class="process-card-text">
+                                Cilj nam je da svako gazdinstvo sa kojim radimo ima jasan sistem – od prvog jutarnjeg ulaska u štalu do večernje provere stada.
+                            </p>
+                            <div class="pill-row">
+                                <div class="pill">
+                                    individualni plan po farmi
+                                </div>
+                                <div class="pill">
+                                    transparentna komunikacija
+                                </div>
+                                <div class="pill">
+                                    dugoročno partnerstvo
+                                </div>
+                            </div>
+                            <div class="cta-inline">
+                               
+                                <div class="cta-note">
+                                    Ukratko opišite farmu i izazove, odgovaramo u roku od jednog radnog dana.
+                                </div>
+                            </div>
+                        </aside>
+                    </div>
+                </section>
+                <section class="contact-section" id="contact">
+                    <div class="contact-layout">
+                        <div>
+                            <h2 class="contact-title">
+                                Započnimo priču o vašoj farmi
+                            </h2>
+                            <p class="contact-text">
+                                Recite nam par rečenica o gazdinstvu, broju životinja i izazovima koje trenutno imate. Na osnovu toga predložićemo model saradnje i dogovoriti prvu posetu.
+                            </p>
+                            <div class="contact-badges">
+                                <div class="contact-badge">
+                                    Prvi razgovor bez obaveze
+                                </div>
+                                <div class="contact-badge">
+                                    Podrška tokom cele godine
+                                </div>
+                            </div>
+                            <div class="contact-details">
+                                <div class="contact-details-item">
+                                    <div class="contact-label">
+                                        Adresa
+                                    </div>
+                                    <div class="contact-value">
+                                        Marsala Tita 215, PAK 234101 Skobalj, Srbija
+                                    </div>
+                                </div>
+                                <div class="contact-details-item">
+                                    <div class="contact-label">
+                                        E-mail
+                                    </div>
+                                    <div class="contact-value">
+                                        <a class="contact-email-link" href="mailto:info@agrovuk2020.pro">
+                                            info@agrovuk2020.pro
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <aside class="contact-card">
+                            <h3 class="contact-card-title">
+                                Šta možete napisati u poruci
+                            </h3>
+                            <p class="contact-card-text">
+                                Ne morate slati detaljne izveštaje – dovoljno je da ukratko opišete situaciju na farmi. Početnu sliku dopunićemo na prvoj poseti.
+                            </p>
+                            <ul class="contact-phrase-list">
+                                <li>
+                                    „Imamo X grla, primetan je pad prirasta/mlečnosti u poslednjim mesecima.“
+                                </li>
+                                <li>
+                                    „Želimo da sredimo uslove držanja i uvedemo jasniji sistem ishrane.“
+                                </li>
+                                <li>
+                                    „Potrebna nam je dugoročna podrška i redovne kontrole stada.“
+                                </li>
+                                <li>
+                                    „Interesuje nas digitalno praćenje rezultata i jednostavni izveštaji.“
+                                </li>
+                            </ul>
+                            <button class="btn-primary" data-open-modal="contact">
+                                Otvori kontakt formu
+                            </button>
+                            <p class="form-hint">
+                                U formi tražimo samo osnovne podatke i kratak opis farme, bez telefonskog broja ili osetljivih informacija.
+                            </p>
+                        </aside>
+                    </div>
+                </section>
+            </main>
+            <footer class="footer">
+                <span>
+                    © AGRO VUK 2020 d.o.o., Skobalj. Podrška stočarskoj proizvodnji zasnovana na podacima i iskustvu.
+                </span>
+                <span>
+                    Kontakt e-mail:
+                    <a href="mailto:info@agrovuk2020.pro">
+                        info@agrovuk2020.pro
+                    </a>
+                </span>
+            </footer>
+        </div>
+    </div>
+    <div class="modal-overlay" id="contact-modal" aria-hidden="true">
+        <div class="modal" role="dialog" aria-modal="true" aria-labelledby="contact-modal-title">
+            <div class="modal-header">
+                <h2 class="modal-title" id="contact-modal-title">
+                    Pošaljite nam poruku
+                </h2>
+                <button class="modal-close" data-close-modal="contact" aria-label="Zatvori prozor">
+                    ✕
+                </button>
+            </div>
+            <div class="modal-body">
+                Napišite nam par rečenica o vašoj farmi i izazovima. Odgovorićemo vam na e-mail sa predlogom narednih koraka i terminom za uvodni razgovor.
+            </div>
+            <form class="form" id="contact-form">
+                <div class="form-row">
+                    <label class="form-label" for="name">
+                        Ime i prezime
+                    </label>
+                    <input class="form-input" type="text" id="name" name="name" required autocomplete="name" placeholder="Vaše ime i prezime">
+                </div>
+                <div class="form-row">
+                    <label class="form-label" for="email">
+                        E-mail adresa
+                    </label>
+                    <input class="form-input" type="email" id="email" name="email" required autocomplete="email" placeholder="primer@domen.rs">
+                    <div class="form-hint">
+                        E-mail koristimo isključivo da odgovorimo na vaš upit.
+                    </div>
+                </div>
+                <div class="form-row">
+                    <label class="form-label" for="farm-type">
+                        Tip gazdinstva
+                    </label>
+                    <select class="form-select" id="farm-type" name="farm-type" required>
+                        <option value="">
+                            Izaberite tip farme
+                        </option>
+                        <option value="govedarstvo">
+                            Govedarstvo
+                        </option>
+                        <option value="svinjarstvo">
+                            Svinjarstvo
+                        </option>
+                        <option value="ovcarstvo">
+                            Ovčarstvo
+                        </option>
+                        <option value="živina">
+                            Farme živine
+                        </option>
+                        <option value="kombinovano">
+                            Kombinovano gazdinstvo
+                        </option>
+                    </select>
+                </div>
+                <div class="form-row">
+                    <label class="form-label" for="message">
+                        Kratak opis izazova
+                    </label>
+                    <textarea class="form-textarea" id="message" name="message" required placeholder="Npr. poslednjih meseci imamo više respiratornih problema / pad prirasta / problema sa uslovima u objektu."></textarea>
+                </div>
+                <div class="form-actions">
+                    <button class="btn-primary" type="submit">
+                        Pošalji poruku
+                    </button>
+                    <div class="form-meta">
+                        Vaša poruka se šalje kao standardni e-mail.
+                        <div class="badge-soft">
+                            <span class="badge-dot"></span>
+                            Bez zahtevа za broj telefona
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="modal-overlay modal-success" id="success-modal" aria-hidden="true">
+        <div class="modal" role="dialog" aria-modal="true" aria-labelledby="success-modal-title">
+            <div class="success-icon" aria-hidden="true">
+                ✔
+            </div>
+            <h2 class="success-title" id="success-modal-title">
+                Poruka je uspešno poslata
+            </h2>
+            <p class="success-text">
+                Hvala vam na poverenju. Pregledaćemo vaš upit i javiti se na prosleđenu e-mail adresu sa predlogom narednih koraka za vaše gazdinstvo.
+            </p>
+            <p class="success-note">
+                Ukoliko ne dobijete odgovor u roku od jednog radnog dana, proverite folder „Promocije“ ili „Neželjena pošta“ u svom sandučetu.
+            </p>
+            <div style="margin-top:16px;">
+                <button class="btn-primary" data-close-modal="success">
+                    Zatvori poruku
+                </button>
+            </div>
+        </div>
+    </div>
+    <script>
+        const navLinks = document.querySelectorAll(".nav-link");
+        const sections = document.querySelectorAll("section, header.hero");
+        function setActiveNav() {
+            let currentId = "";
+            const scrollY = window.pageYOffset;
+            sections.forEach(section => {
+                const rect = section.getBoundingClientRect();
+                const offsetTop = rect.top + window.pageYOffset;
+                if (scrollY >= offsetTop - 140) {
+                    currentId = section.getAttribute("id");
+                }
+            });
+            navLinks.forEach(link => {
+                const target = link.getAttribute("data-scroll");
+                if (target === "#" + currentId) {
+                    link.classList.add("active");
+                } else if (currentId === "hero" && target === "#about") {
+                    link.classList.add("active");
+                } else if (target !== "#about" || currentId !== "hero") {
+                    link.classList.remove("active");
+                }
+            });
+        }
+        setActiveNav();
+        window.addEventListener("scroll", setActiveNav);
+        navLinks.forEach(link => {
+            link.addEventListener("click", event => {
+                const selector = link.getAttribute("data-scroll");
+                const target = document.querySelector(selector);
+                if (target) {
+                    event.preventDefault();
+                    const top = target.getBoundingClientRect().top + window.pageYOffset - 90;
+                    window.scrollTo({
+                        top,
+                        behavior: "smooth"
+                    });
+                }
+            });
+        });
+        const scrollTriggers = document.querySelectorAll("[data-scroll]:not(.nav-link)");
+        scrollTriggers.forEach(trigger => {
+            trigger.addEventListener("click", event => {
+                const selector = trigger.getAttribute("data-scroll");
+                const target = document.querySelector(selector);
+                if (target) {
+                    event.preventDefault();
+                    const top = target.getBoundingClientRect().top + window.pageYOffset - 90;
+                    window.scrollTo({
+                        top,
+                        behavior: "smooth"
+                    });
+                }
+            });
+        });
+        const contactModal = document.getElementById("contact-modal");
+        const successModal = document.getElementById("success-modal");
+        const modalOpenButtons = document.querySelectorAll("[data-open-modal]");
+        const modalCloseButtons = document.querySelectorAll("[data-close-modal]");
+        function openModal(modalName) {
+            if (modalName === "contact") {
+                contactModal.classList.add("active");
+                contactModal.setAttribute("aria-hidden", "false");
+            }
+            if (modalName === "success") {
+                successModal.classList.add("active");
+                successModal.setAttribute("aria-hidden", "false");
+            }
+        }
+        function closeModal(modalName) {
+            if (modalName === "contact") {
+                contactModal.classList.remove("active");
+                contactModal.setAttribute("aria-hidden", "true");
+            }
+            if (modalName === "success") {
+                successModal.classList.remove("active");
+                successModal.setAttribute("aria-hidden", "true");
+            }
+        }
+        modalOpenButtons.forEach(button => {
+            button.addEventListener("click", () => {
+                const modalName = button.getAttribute("data-open-modal");
+                openModal(modalName);
+            });
+        });
+        modalCloseButtons.forEach(button => {
+            button.addEventListener("click", () => {
+                const modalName = button.getAttribute("data-close-modal");
+                closeModal(modalName);
+            });
+        });
+        [contactModal, successModal].forEach(overlay => {
+            overlay.addEventListener("click", event => {
+                if (event.target === overlay) {
+                    overlay.classList.remove("active");
+                    overlay.setAttribute("aria-hidden", "true");
+                }
+            });
+        });
+        const contactForm = document.getElementById("contact-form");
+        contactForm.addEventListener("submit", event => {
+            event.preventDefault();
+            contactForm.reset();
+            closeModal("contact");
+            openModal("success");
+        });
+    </script>
+</body>
+</html>
